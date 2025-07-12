@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #595353;
+      color: #333;
+      height: 100vh;
+    }
+    .navbar {
+      width: 100%;
+      position: fixed;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #181515;
+      color: white;
+      padding: 10px 20px;
+    }
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+    }
+    .nav-links li a {
+      text-decoration: none;
+      color: white;
+      font-weight: bold;
+      transition: color 0.3s ease;
+    }
+    .nav-links li a:hover {
+      color: #4909e0;
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 400px;
+    }
+    .navbar button {
+      background-color: #181515;
+      color: white;
+      border-radius: 15px;
+      border: 1px solid white;
+      padding: 5px 10px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: all 0.3s ease;
+    }
+    .navbar button:hover {
+      transform: translateY(-5px);
+      box-shadow: 4px 4px 15px white;
+    }
+    .container {
+      height: 100vh;
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      padding-bottom: 120px;
+    }
+
+    .container h1,
+    .container p {
+      margin-bottom: 10px;
+    }
+    .square {
+      background-color: #242323;
+      padding: 15px;
+      border-radius: 10px;
+      margin-top: 30px;
+    }
+    .square form {
+      gap: 10px;
+    }
+    .square input {
+      padding: 10px;
+      border-radius: 5px;
+      width: 200px;
+    }
+    .square button {
+      padding: 10px 15px;
+      border: 1px solid white;
+      border-radius: 5px;
+      background-color: #232225;
+      color: white;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+  </style>
+
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Todo list website</title>
+  </head>
+  <body>
+    <div class="navbar">
+      <div class="logo">
+        <h1>Todo List</h1>
+        <button type="button" id="theme">Dark theme</button>
+      </div>
+      <ul class="nav-links">
+        <li><a href="">home</a></li>
+        <li><a href="">about</a></li>
+        <li><a href="">contact</a></li>
+      </ul>
+    </div>
+    <div class="container">
+      <h1>Welcome to the Todo List App</h1>
+      <p>Manage your tasks efficiently!</p>
+      <div class="square">
+        <form>
+          <input type="text" placeholder="Add a new task" required />
+          <button type="submit">Add Task</button>
+        </form>
+      </div>
+    </div>
+  </body>
+  <script>
+    const button = document.getElementById("theme");
+    let isdark = true;
+
+    button.addEventListener("click", () => {
+      const navbar = document.querySelector(".navbar");
+      const links = document.querySelectorAll(".nav-links a");
+      const button1 = document.getElementById("theme");
+
+      if (isdark) {
+        button1.textContent = "Light theme";
+        button1.style.backgroundColor = "white";
+        button1.style.color = "black";
+        button1.style.border = "1px solid black";
+        document.body.style.backgroundColor = "#D3D3D3";
+        navbar.style.backgroundColor = "white";
+        navbar.style.color = "black";
+        links.forEach((link) => (link.style.color = "black"));
+
+        isdark = false;
+      } else {
+        button1.textContent = "Dark theme";
+        button1.style.backgroundColor = "#181515";
+        button1.style.color = "white";
+        button1.style.border = "1px solid white";
+        document.body.style.backgroundColor = "#595353";
+        navbar.style.backgroundColor = "#181515";
+        navbar.style.color = "white";
+        links.forEach((link) => (link.style.color = "white"));
+
+        isdark = true;
+      }
+    });
+  </script>
+</html>
