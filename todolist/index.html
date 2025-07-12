@@ -62,18 +62,15 @@
       justify-content: center;
       align-items: center;
       flex-direction: column;
-      padding-bottom: 120px;
+      
     }
 
-    .container h1,
-    .container p {
-      margin-bottom: 10px;
-    }
+   
     .square {
       background-color: #242323;
       padding: 15px;
       border-radius: 10px;
-      margin-top: 30px;
+      margin-top: 15px;
     }
     .square form {
       gap: 10px;
@@ -91,6 +88,27 @@
       color: white;
       cursor: pointer;
       transition: background-color 0.3s ease;
+    }
+    .list-item{
+      list-style: none;
+      width: 100%;
+      max-width: 320px;
+      margin-top: 10px;
+      max-height: 350px; /* adjust as needed */
+     overflow-y: auto;
+     height: 50vh;
+    }
+    .list-item li{
+      color: black;
+      padding: 5px;
+      width: 100%;  
+      background-color: beige;
+      border-radius: 5px;
+      margin-bottom: 4px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
     }
   </style>
 
@@ -120,9 +138,48 @@
           <button type="submit">Add Task</button>
         </form>
       </div>
+      <ul class="list-item">
+      </ul>
     </div>
   </body>
   <script>
+
+    const form = document.querySelector(".square form");
+    const input = document.querySelector(".square input");
+    const ListContainer = document.querySelector(".container .list-item");
+
+    form.addEventListener("submit", function(e){
+      e.preventDefault();
+      const task = input.value.trim();
+
+if(task!==""){
+  const li = document.createElement("li");
+  li.textContent = task;
+  const deleteButton = document.createElement("button");
+  deleteButton.textContent = "x";
+  deleteButton.style.padding = "5px";
+  deleteButton.style.cursor = "pointer";
+
+  deleteButton.addEventListener("click", function(){
+    li.remove();
+  });
+
+
+
+
+
+  ListContainer.appendChild(li);
+  li.appendChild(deleteButton);
+  input.value = "";
+}
+
+    });
+
+
+
+
+
+
     const button = document.getElementById("theme");
     let isdark = true;
 
