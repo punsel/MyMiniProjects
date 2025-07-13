@@ -1,32 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
   <style>
-   
-    .navbar button {
-      background-color: #181515;
-      color: white;
-      border-radius: 15px;
-      border: 1px solid white;
-      padding: 5px 10px;
-      cursor: pointer;
-      font-size: 16px;
-      transition: all 0.3s ease;
+   * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
-    .navbar button:hover {
-      transform: translateY(-5px);
-      box-shadow: 4px 4px 15px white;
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #ffffff;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
     .container {
-      height: 100vh;
-      color: white;
+      margin: 10px;
+      box-shadow: 2px 2px 10px  black;
+      background-color: aliceblue;
+      padding: 30px;
+      color: rgb(50, 43, 43);
       display: flex;
       justify-content: center;
       align-items: center;
       flex-direction: column;
       
     }
-
-   
     .square {
       background-color: #242323;
       padding: 15px;
@@ -55,14 +54,14 @@
       width: 100%;
       max-width: 320px;
       margin-top: 10px;
-      max-height: 350px; /* adjust as needed */
+      max-height: 320px; /* adjust as needed */
      overflow-y: auto;
-     height: 50vh;
     }
     .list-item li{
       color: black;
       padding: 5px;
       width: 100%;  
+      border:1px solid #232225;
       background-color: beige;
       border-radius: 5px;
       margin-bottom: 4px;
@@ -114,11 +113,6 @@ if(task!==""){
   deleteButton.addEventListener("click", function(){
     li.remove();
   });
-
-
-
-
-
   ListContainer.appendChild(li);
   li.appendChild(deleteButton);
   input.value = "";
@@ -126,46 +120,5 @@ if(task!==""){
 
     });
 
-
-
-
-
-
-    const button = document.getElementById("theme");
-    let isdark = true;
-
-    button.addEventListener("click", () => {
-      const navbar = document.querySelector(".navbar");
-      const links = document.querySelectorAll(".nav-links a");
-      const button1 = document.getElementById("theme");
-      const container = document.querySelector(".container");
-
-
-      if (isdark) {
-        button1.textContent = "Light theme";
-        button1.style.backgroundColor = "white";
-        button1.style.color = "black";
-        button1.style.border = "1px solid black";
-        document.body.style.backgroundColor = "#D3D3D3";
-        navbar.style.backgroundColor = "white";
-        navbar.style.color = "black";
-        container.style.color = "black"
-        links.forEach((link) => (link.style.color = "black"));
-
-        isdark = false;
-      } else {
-        button1.textContent = "Dark theme";
-        button1.style.backgroundColor = "#181515";
-        button1.style.color = "white";
-        button1.style.border = "1px solid white";
-        document.body.style.backgroundColor = "#595353";
-        navbar.style.backgroundColor = "#181515";
-        navbar.style.color = "white";
-        container.style.color = "white"
-        links.forEach((link) => (link.style.color = "white"));
-
-        isdark = true;
-      }
-    });
   </script>
 </html>
