@@ -86,6 +86,7 @@
         <form>
           <input type="text" placeholder="Add a new task" required />
           <button type="submit">Add Task</button>
+          <button type="button" id="deleteAll" style="display: none;"> delete all</button>
         </form>
       </div>
       <ul class="list-item">
@@ -97,6 +98,9 @@
     const form = document.querySelector(".square form");
     const input = document.querySelector(".square input");
     const ListContainer = document.querySelector(".container .list-item");
+    const deleteAll = document.getElementById("deleteAll");
+
+let lilength = "";
 
     form.addEventListener("submit", function(e){
       e.preventDefault();
@@ -109,10 +113,13 @@ if(task!==""){
   deleteButton.textContent = "x";
   deleteButton.style.padding = "5px";
   deleteButton.style.cursor = "pointer";
-
   deleteButton.addEventListener("click", function(){
     li.remove();
   });
+  lilength++;
+if (lilength >= 2){
+  deleteAll.style.display = "block";
+}
   ListContainer.appendChild(li);
   li.appendChild(deleteButton);
   input.value = "";
