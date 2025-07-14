@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <style>
-   * {
+    * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
@@ -16,7 +16,7 @@
     }
     .container {
       margin: 10px;
-      box-shadow: 2px 2px 10px  black;
+      box-shadow: 2px 2px 10px black;
       background-color: aliceblue;
       padding: 30px;
       color: rgb(50, 43, 43);
@@ -24,7 +24,6 @@
       justify-content: center;
       align-items: center;
       flex-direction: column;
-      
     }
     .square {
       background-color: #242323;
@@ -34,6 +33,8 @@
     }
     .square form {
       gap: 10px;
+      display: flex;
+      align-items: center;
     }
     .square input {
       padding: 10px;
@@ -49,26 +50,25 @@
       cursor: pointer;
       transition: background-color 0.3s ease;
     }
-    .list-item{
+    .list-item {
       list-style: none;
       width: 100%;
       max-width: 320px;
       margin-top: 10px;
       max-height: 320px; /* adjust as needed */
-     overflow-y: auto;
+      overflow-y: auto;
     }
-    .list-item li{
+    .list-item li {
       color: black;
       padding: 5px;
-      width: 100%;  
-      border:1px solid #232225;
+      width: 100%;
+      border: 1px solid #232225;
       background-color: beige;
       border-radius: 5px;
       margin-bottom: 4px;
       display: flex;
       justify-content: space-between;
       align-items: center;
-
     }
   </style>
 
@@ -78,7 +78,6 @@
     <title>Todo list</title>
   </head>
   <body>
-  
     <div class="container">
       <h1>Welcome to the Todo List App</h1>
       <p>Manage your tasks efficiently!</p>
@@ -86,46 +85,63 @@
         <form>
           <input type="text" placeholder="Add a new task" required />
           <button type="submit">Add Task</button>
-          <button type="button" id="deleteAll" style="display: none;"> delete all</button>
+          <button type="button" id="deleteAll" style="display: none">
+            delete all
+          </button>
         </form>
       </div>
-      <ul class="list-item">
-      </ul>
+      <ul class="list-item"></ul>
     </div>
   </body>
   <script>
-
-    const form = document.querySelector(".square form");
-    const input = document.querySelector(".square input");
-    const ListContainer = document.querySelector(".container .list-item");
-    const deleteAll = document.getElementById("deleteAll");
-
-let lilength = "";
-
-    form.addEventListener("submit", function(e){
-      e.preventDefault();
-      const task = input.value.trim();
-
-if(task!==""){
-  const li = document.createElement("li");
-  li.textContent = task;
-  const deleteButton = document.createElement("button");
-  deleteButton.textContent = "x";
-  deleteButton.style.padding = "5px";
-  deleteButton.style.cursor = "pointer";
-  deleteButton.addEventListener("click", function(){
-    li.remove();
-  });
-  lilength++;
-if (lilength >= 2){
-  deleteAll.style.display = "block";
-}
-  ListContainer.appendChild(li);
-  li.appendChild(deleteButton);
-  input.value = "";
-}
-
+// Declare them in the variable for easy use
+        const form = document.querySelector(".square form");
+        const input = document.querySelector(".square input");
+        const ListContainer = document.querySelector(".container .list-item");
+        const deleteAll = document.getElementById("deleteAll");
+//count of the list
+    let itemCount = 0;
+  //show the delete all button when the item count is >= 2;
+ function showDeleteAllButton(){
+  deleteAll.style.display = itemCount > 1 ? "block": "none";
+ }
+    //delete all in the list and revert the itemcount to 0
+    deleteAll.addEventListener("click", function(){
+      ListContainer.innerHTML = '';
+      itemCount = 0;
+      showDeleteAllButton();
     });
+    //when the user click the add task button
+        form.addEventListener("submit", function(e){
+          e.preventDefault();
+          const task = input.value.trim();
 
+          // check if the user have inputted
+    if(task!==""){
+      //create li items of the users input
+      const li = document.createElement("li");
+      li.textContent = task;
+       //create delete button when theres a new li
+      const deleteButton = document.createElement("button");
+      deleteButton.textContent = "x";
+      deleteButton.style.padding = "5px";
+      deleteButton.style.cursor = "pointer";
+      //delete a li element and lessen the item count to 1
+      deleteButton.addEventListener("click", function(){
+        li.remove();
+        itemCount--;
+        showDeleteAllButton();
+      });
+    
+    //display the li and the buttons
+      ListContainer.appendChild(li);
+      li.appendChild(deleteButton);
+  //add 1 count when theres a new li list
+      itemCount++;
+      showDeleteAllButton();
+      input.value = "";
+    }
+
+        });
   </script>
 </html>
