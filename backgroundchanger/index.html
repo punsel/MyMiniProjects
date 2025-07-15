@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .square{
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            gap: 40px;
+            transition: background-color 3s ease-in-out;
+            
+        }
+        #button{
+            padding: 10px;
+            background-color: rgb(92, 16, 215);
+            border: 1px solid rgb(131, 129, 125);
+            border-radius: 10px;
+            color: white;
+        }
+        #text{
+            padding: 10px;
+            border-radius: 5px;
+            font-size: larger;
+        }
+    </style>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Background Changer</title>
+</head>
+<body>
+    <div class="square" id="square">
+        <H1 id="textt">Type any color to change the Background
+
+        </H1>
+        <input type="text" id="text" style="text-align: center;">
+        <button type="button" id="button">change</button>
+
+    </div>
+</body>
+<script>
+    const button = document.getElementById("button");
+    const text = document.getElementById("text");
+    const square = document.getElementById("square");
+    const textt = document.getElementById("textt");
+
+
+    function isValidcolor(color){
+   const test = new Option().style;
+   test.color = color;
+   return test.color !=="";
+    }
+
+    button.onclick = function(){
+const color = text.value.trim();
+if(isValidcolor(color)){
+square.style.backgroundColor= color;
+textt.textContent = "Type any color to change the Background"
+
+    }
+    
+else{
+    textt.textContent = "ERROR BOI"
+}
+}
+</script>
+</html>

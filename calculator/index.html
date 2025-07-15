@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        body{
+            height: 100vh;
+            background-color: beige;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .container{
+            border-radius: 10px;
+            background-color: black;
+display: flex;
+justify-content: center;
+align-items: center;
+flex-direction: column;
+padding: 25px;
+gap: 10px;
+        }
+        .button{
+        display: grid ;
+        grid-template-columns: repeat(4,1fr);
+        gap: 5px;
+        }
+        .button button{
+            padding: 20px 25px;
+        }
+        .answer input{
+            padding: 15px;
+            width: 260px;
+        }
+        .o{
+            background-color: orange;
+        }
+    </style>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+</head>
+<body>
+
+    <div class="container">
+        <div class="answer">
+             <input type="number" id="answers" placeholder="0">
+            </div>
+
+        <div class="button">
+<button class="b" id="one">1</button>
+<button class="b" id="one">2</button>
+<button class="b" id="one">3</button>
+<button class="o" id="one">+</button>
+<button class="b" id="one">4</button>
+<button class="b" id="one">5</button>
+<button class="b" id="one">6</button>
+<button class="o" id="one">-</button>
+<button class="b" id="one">7</button>
+<button class="b" id="one">8</button>
+<button class="b" id="one">9</button>
+<button class="o" id="one">x</button>
+<button class="b" id="one">0</button>
+<button class="o" id="one">C</button>
+<button class="o" id="one">.</button>
+<button class="o" id="one">=</button>
+
+
+
+
+
+
+
+        </div>
+    </div>
+</body>
+</html>
