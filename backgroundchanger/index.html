@@ -62,6 +62,12 @@ const color = text.value.trim();
 if(isValidcolor(color)){
 square.style.backgroundColor= color;
 textt.textContent = "Type any color to change the Background"
+if(color == "black"){
+    textt.style.color = "white"
+}
+else{
+    textt.style.color = "black"
+}
 
     }
     
