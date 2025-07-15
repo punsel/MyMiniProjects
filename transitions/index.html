@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transitions</title>
+</head>
+<style>
+    *{
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+    }
+    body{
+        height: 100vh;
+        background-color: whitesmoke;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 40px;
+    }
+    .container{
+        display: grid ;
+        grid-template-columns: repeat(4,1fr);
+        padding: 10px;
+        gap: 10px;
+    }
+    .square1{
+        border-radius: 5px;
+        background-color: aliceblue;
+        border: 1px solid black;
+        box-shadow: 2px 2px 10px rgb(198, 194, 194);
+        padding: 40px;
+        transition: all 1s ease;
+        perspective: 1000px;
+        cursor: pointer;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    }
+    .square1:hover{
+        background-color: antiquewhite;
+        box-shadow: 5px 5px 20px gray;
+    }
+    #one:hover{
+transform: translateX(-40px);
+    }
+    #two:hover{
+transform: translateY(-40px);
+    }
+    #three:hover{
+transform: translateY(40px);
+    }  
+    #four:hover{
+transform: translateX(40px);
+    }
+    #five:hover{
+transform: rotate(45deg);
+    }
+    #six:hover{
+transform: rotate(-45deg);
+    }
+    #seven:hover{
+transform: rotate(360deg);
+    }
+    #eight:hover{
+transform: rotate(-360deg);
+    }
+    #nine:hover{
+transform: rotateY(45deg);
+    }
+    #ten:hover{
+transform: rotateY(-45deg);
+    }
+    #eleven:hover{
+transform: rotateX(45deg);
+    }
+    #twelve:hover{
+        transform: rotateX(-45deg);
+    }
+    #terten:hover{
+transform: scale(1.4);
+    }
+    #forten:hover{
+        transform: scale(.5);
+    }
+    #fiften:hover{
+   transform: scaleX(1.4);
+    }
+    #sixten:hover{
+        transform: scaley(1.4);
+    }
+    h1{
+    font-size: 50px;
+    }
+</style>
+<body>
+    <H1> Maybe <br> we <br> got <br> lost <br> in<br>  Transition </H1>
+    <div class="container">
+        <div class="square1" id="one">move left</div>
+        <div class="square1" id="two">move up</div>
+        <div class="square1" id="three">move down</div>
+        <div class="square1" id="four">move right</div>
+        <div class="square1" id="five">Rotate 15°</div>
+        <div class="square1" id="six">Rotate -15°</div>
+        <div class="square1" id="seven">Rotate 360°</div>
+        <div class="square1" id="eight">Rotate -360°</div>
+        <div class="square1" id="nine">Rotate Y 45°</div>
+        <div class="square1" id="ten">Rotate Y -45°</div>
+        <div class="square1" id="eleven">Rotate X 45°</div>
+        <div class="square1" id="twelve">Rotate X -45°</div>
+        <div class="square1" id="terten">Scale Up</div>
+        <div class="square1" id="forten">Scale Down</div>
+        <div class="square1" id="fiften">Scale X</div>
+        <div class="square1" id="sixten">Scale Y</div>
+
+        
+    </div>
+</body>
+</html>
