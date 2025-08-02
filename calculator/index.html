@@ -29,11 +29,11 @@ gap: 10px;
         gap: 5px;
         }
         .button button{
-            padding: 20px 25px;
+            padding: 20px;
         }
         .answer input{
             padding: 15px;
-            width: 260px;
+            width: 224px;
         }
         .o{
             background-color: orange;
@@ -48,34 +48,45 @@ gap: 10px;
 
     <div class="container">
         <div class="answer">
-             <input type="number" id="answers" placeholder="0">
+             <input type="text" id="answers" placeholder="0">
             </div>
 
         <div class="button">
-<button class="b" id="one">1</button>
-<button class="b" id="one">2</button>
-<button class="b" id="one">3</button>
-<button class="o" id="one">+</button>
-<button class="b" id="one">4</button>
-<button class="b" id="one">5</button>
-<button class="b" id="one">6</button>
-<button class="o" id="one">-</button>
-<button class="b" id="one">7</button>
-<button class="b" id="one">8</button>
-<button class="b" id="one">9</button>
-<button class="o" id="one">x</button>
-<button class="b" id="one">0</button>
-<button class="o" id="one">C</button>
-<button class="o" id="one">.</button>
-<button class="o" id="one">=</button>
-
-
-
-
-
+<button class="b" onclick="appendval('1')">1</button>
+<button class="b" onclick="appendval('2')">2</button>
+<button class="b" onclick="appendval('3')">3</button>
+<button class="o" >+</button>
+<button class="b" onclick="appendval('4')">4</button>
+<button class="b" onclick="appendval('5')">5</button>
+<button class="b" onclick="appendval('6')">6</button>
+<button class="o" >-</button>
+<button class="b" onclick="appendval('7')">7</button>
+<button class="b" onclick="appendval('8')">8</button>
+<button class="b" onclick="appendval('9')">9</button>
+<button class="o" >x</button>
+<button class="b" onclick="appendval('0')">0</button>
+<button class="o" onclick="clearAnswer()">C</button>
+<button class="o" >.</button>  
+<button class="o" >=</button>
 
 
         </div>
     </div>
 </body>
+<script>
+
+let answer = document.getElementById("answers");
+    function appendval(val){
+        if (answer.value === "0") {
+    answer.value = val; // replace the 0
+  } else {
+    answer.value += val; // append normally
+  }
+    }
+    function clearAnswer(){
+        answer.value="0";
+    }
+   
+
+</script>
 </html>

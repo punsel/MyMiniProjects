@@ -37,11 +37,9 @@
 <body>
     <div class="square" id="square">
         <H1 id="textt">Type any color to change the Background
-
         </H1>
         <input type="text" id="text" style="text-align: center;">
         <button type="button" id="button">change</button>
-
     </div>
 </body>
 <script>
@@ -49,33 +47,21 @@
     const text = document.getElementById("text");
     const square = document.getElementById("square");
     const textt = document.getElementById("textt");
-
-
     function isValidcolor(color){
    const test = new Option().style;
    test.color = color;
    return test.color !=="";
     }
-
     button.onclick = function(){
 const color = text.value.trim();
 if(isValidcolor(color)){
 square.style.backgroundColor= color;
 textt.textContent = "Type any color to change the Background"
 text.style.color = color;
-
-if(color == "black"){
-    textt.style.color = "white"
-}
-else{
-    textt.style.color = "black"
-}
-
+if(color == "black"){ textt.style.color = "white"}
+else{textt.style.color = "black"}
     }
-    
-else{
-    textt.textContent = "ERROR BOI"
-}
+else{textt.textContent = "ERROR BOI"}
 }
 </script>
 </html>
